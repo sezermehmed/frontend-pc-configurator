@@ -3,7 +3,7 @@
 import React, {Component, useState} from 'react';
 import { Link } from 'react-router-dom';
 import CpuService from '../services/CpuService';
-import AddCpuForm from './AddCpuForm';
+
 class CpuList extends Component {
   constructor(props) {
     super(props);
