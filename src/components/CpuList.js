@@ -71,6 +71,7 @@ class CpuList extends Component {
               <th>ID</th>
               <th>Name</th>
               <th>Socket</th>
+              <th>Supported Memory</th>
               <th>Price</th>
               <th>Actions</th>
             </tr>
@@ -81,6 +82,7 @@ class CpuList extends Component {
                 <td>{cpu.id}</td>
                 <td>{cpu.name}</td>
                 <td>{cpu.socket}</td>
+                <td>{cpu.supportedMemory}</td>
                 <td>{cpu.price}</td>
 
                 <td>

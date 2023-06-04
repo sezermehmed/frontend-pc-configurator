@@ -3,7 +3,6 @@
 import React, {Component, useState} from 'react';
 import { Link } from 'react-router-dom';
 import MemoryService from '../services/MemoryService';
-import CpuService from '../services/CpuService';
 class MemoryList extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +18,7 @@ class MemoryList extends Component {
 
 
   refreshMemorys() {
-    MemoryService.getAllMemorys()
+    MemoryService.getAllMemory()
       .then((response) => {
         this.setState({ Memorys: response.data });
       })
@@ -28,12 +27,12 @@ class MemoryList extends Component {
       });
   }
     refreshMemoryById() {
-        MemoryService.getAllMemorys()
+        MemoryService.getAllMemory()
             .then((response) => {
                 this.setState({ Memorys: response.data });
             })
             .catch((error) => {
-                console.error('Error retrieving Memorys:', error);
+                console.error('Error retrieving Memories:', error);
             });
     }
 
@@ -45,7 +44,7 @@ class MemoryList extends Component {
         .catch((error) => {
             console.error('Error refreshing Memory: ', error)
         });
- }
+ } 
   handleDelete = (id) => {
     MemoryService.deleteMemory(id)
       .then(() => {
@@ -58,7 +57,7 @@ class MemoryList extends Component {
   };
 
   
-
+ 
   render() {
     return (
       <div>
