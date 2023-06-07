@@ -1,3 +1,8 @@
+# This is Admin Frontend for Pc-Configurator Project
+
+[Java Spring Back-End](https://github.com/sezermehmed/PC-Configurator)
+
+[React client Front-End](https://github.com/sezermehmed/frontend-pc-configurator)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
