@@ -3,7 +3,7 @@
 import React, {Component, useState} from 'react';
 import { Link } from 'react-router-dom';
 import CpuService from '../services/CpuService';
-
+import CpuListStyle from './style/CpuListStyle.css';
 class CpuList extends Component {
   constructor(props) {
     super(props);
