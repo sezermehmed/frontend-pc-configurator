@@ -3,7 +3,7 @@
 import React, {Component, useState} from 'react';
 import { Link } from 'react-router-dom';
 import CpuService from '../services/CpuService';
-import CpuListStyle from './style/CpuListStyle.css';
+//import './style/CpuList.css';
 class CpuList extends Component {
   constructor(props) {
     super(props);
@@ -86,11 +86,11 @@ class CpuList extends Component {
                 <td>{cpu.price}</td>
 
                 <td>
-                  <Link to={`/cpus/${cpu.id}`}>Edit</Link>
+                  <Link className="b" to={`/cpus/${cpu.id}`}>Edit</Link>
                   <button onClick={() => this.handleDelete(cpu.id)}>
                     Delete
                   </button>
-                  <button onClick={() => this.handleRefreshCpuById( cpu.id)}>
+                  <button onClick={() => this.handleRefreshCpuById(cpu.id)}>
                     Refresh Cpu
                   </button>
                 </td>

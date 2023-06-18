@@ -27,7 +27,7 @@ class MotherboardList extends Component {
       });
   }
     refreshMotherboardById() {
-        MotherboardService.getAllMotherboard()
+        MotherboardService.getMotherboardById()
             .then((response) => {
                 this.setState({ Motherboards: response.data });
             })
@@ -39,7 +39,7 @@ class MotherboardList extends Component {
  handleRefreshMotherboardById(id) {
     MotherboardService.getMotherboardById(id)
         .then((value) => {
-            this.refreshMotherboards()
+            this.refreshMotherboards(value)
         })
         .catch((error) => {
             console.error('Error refreshing Motherboard: ', error)
@@ -63,13 +63,13 @@ class MotherboardList extends Component {
       <div>
         <h2>Motherboard List</h2>
         <Link to="/Motherboard">Add Motherboard</Link>
-
         <table>
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Socket</th>
+              <th>Supported Memory</th>
               <th>Price</th>
               <th>Actions</th>
             </tr>
@@ -80,14 +80,14 @@ class MotherboardList extends Component {
                 <td>{Motherboard.id}</td>
                 <td>{Motherboard.name}</td>
                 <td>{Motherboard.socket}</td>
+                <td>{Motherboard.supported_memory}</td>
                 <td>{Motherboard.price}</td>
-
                 <td>
-                  <Link to={`/Motherboards/${Motherboard.id}`}>Edit</Link>
+                  <Link className='b' to={`/Motherboards/${Motherboard.id}`}>Edit</Link>
                   <button onClick={() => this.handleDelete(Motherboard.id)}>
                     Delete
                   </button>
-                  <button onClick={() => this.handleRefreshMotherboardById( Motherboard.id)}>
+                  <button onClick={() => this.handleRefreshMotherboardById(Motherboard.id)}>
                     Refresh Motherboard
                   </button>
                 </td>

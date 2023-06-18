@@ -22,14 +22,13 @@ th {
 
 tr:hover {background-color:#f5f5f5;}
 
-button {
+button, .b {
     margin-right: 10px;
     padding: 10px 20px;
     border: none;
     background-color: #4caf4f;
     color: white;
     cursor: pointer;
-    
 }
 
 button:hover {

@@ -3,6 +3,7 @@
 import React, {Component, useState} from 'react';
 import { Link } from 'react-router-dom';
 import MemoryService from '../services/MemoryService';
+import './style/MemoryList.css';
 class MemoryList extends Component {
   constructor(props) {
     super(props);
@@ -83,7 +84,7 @@ class MemoryList extends Component {
                 <td>{Memory.price}</td>
 
                 <td>
-                  <Link to={`/Memorys/${Memory.id}`}>Edit</Link>
+                  <Link className='b' to={`/Memorys/${Memory.id}`}>Edit</Link>
                   <button onClick={() => this.handleDelete(Memory.id)}>
                     Delete
                   </button>
