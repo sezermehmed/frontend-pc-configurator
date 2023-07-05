@@ -1,47 +1,113 @@
-body {
-    font-family: Arial, sans-serif;
+.motherboard-list-container {
+    margin-bottom: 20px;
 }
 
-table {
-    width: 70%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    table-layout: inherit;
+.motherboard-list-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-th, td {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+.motherboard-list-add-button {
+    margin-bottom: 10px;
 }
 
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-tr:hover {
-    background-color: #f5f5f5;
-}
-
-button, .b {
-    margin-right: 10px;
-    padding: 10px 20px;
+.motherboard-list-refresh-button {
+    color: #fff;
+    background-color: #21262a;
     border: none;
-    background-color: #4caf4f;
-    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.motherboard-list-refresh-button:hover {
+    background-color: #6d87a4;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+.motherboard-list-refresh-button:active {
+    background-color: #98a2b2;
 }
 
-a {
-    color: #0066cc;
-    text-decoration: none;
+.motherboard-list-edit-button {
+    cursor: pointer;
 }
 
-a:hover {
-    text-decoration: underline;
+.motherboard-list-delete-button {
+    margin-left: 10px;
+}
+
+.motherboard-list-textfield {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.motherboard-list-select {
+    width: 120px;
+}
+
+.motherboard-list-save-button {
+    background-color: #4caf50; /* Set the background color */
+    border: none; /* Remove the border */
+    color: white; /* Set the text color */
+    padding: 10px 20px; /* Add padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline block */
+    font-size: 16px; /* Set the font size */
+    transition-duration: 0.4s; /* Add transition effect duration */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 10px; /* Add margin between buttons */
+}
+
+.motherboard-list-cancel-button {
+    background-color: #c92151;
+    border: none; /* Remove the border */
+    color: white; /* Set the text color */
+    padding: 10px 20px; /* Add padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline block */
+    font-size: 16px; /* Set the font size */
+    transition-duration: 0.4s; /* Add transition effect duration */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 10px; /* Add margin between buttons */
+}
+
+.motherboard-list-save-button:hover {
+    background-color: #438f47; /* Change background color on hover */
+}
+
+.motherboard-list-cancel-button:hover {
+    background-color: #9f3346;
+}
+
+
+.motherboard-list-table-row {
+    transition: background-color 0.3s ease;
+}
+
+.motherboard-list-table-row:hover {
+    background-color: #f5f5f5;
+}
+
+.motherboard-list-table-cell-actions {
+    display: flex;
+    align-items: center;
+}
+
+.motherboard-list-table-cell-actions > * {
+    margin-right: 5px;
+}
+
+.motherboard-list-no-memories {
+    text-align: center;
+    color: #999;
+    margin: 20px 0;
 }

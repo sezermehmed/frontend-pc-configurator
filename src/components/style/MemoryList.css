@@ -1,66 +1,3 @@
-/*body {*/
-/*    font-family: Arial, sans-serif;*/
-
-/*}*/
-
-/*table {*/
-/*    width: 70%;*/
-/*    border-collapse: collapse;*/
-/*    margin-top: 20px;*/
-/*    table-layout: inherit;*/
-/*}*/
-
-/*th, td {*/
-/*    padding: 15px;*/
-/*    text-align: center;*/
-/*    border-bottom: 1px solid #ddd;*/
-/*}*/
-
-/*th {*/
-/*    background-color: #4CAF50;*/
-/*    color: white;*/
-/*}*/
-
-/*tr:hover {*/
-/*    background-color: #f5f5f5;*/
-/*}*/
-
-/*button, .b {*/
-/*    margin-right: 10px;*/
-/*    padding: 10px 20px;*/
-/*    border: none;*/
-/*    background-color: #4caf4f;*/
-/*    color: white;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*button:hover {*/
-/*    background-color: #45a049;*/
-/*}*/
-
-/*a {*/
-/*    color: #0066cc;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*a:hover {*/
-/*    text-decoration: underline;*/
-/*}*/
-
-/*.refreshButton {*/
-/*    background-color: #09111a;*/
-/*    color: #c1c9d2;*/
-/*}*/
-
-/*.refreshButton:hover {*/
-/*    background-color: rgb(204, 209, 227);*/
-/*}*/
-
-/*.delete {*/
-/*    padding-left: 10px;*/
-/*    padding-right: 10px;*/
-/*}*/
-
 .memory-list-container {
     margin-bottom: 20px;
 }
@@ -112,18 +49,46 @@
 }
 
 .memory-list-select {
-    width: 120px;
+    width: 190px;
+
 }
 
 .memory-list-save-button {
-    margin-right: 5px;
-    background-color: #4caf50;
-    color: #fff;
+    background-color: #4caf50; /* Set the background color */
+    border: none; /* Remove the border */
+    color: white; /* Set the text color */
+    padding: 10px 20px; /* Add padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline block */
+    font-size: 16px; /* Set the font size */
+    transition-duration: 0.4s; /* Add transition effect duration */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 10px; /* Add margin between buttons */
 }
 
 .memory-list-cancel-button {
-    color: #ff0000;
+    background-color: #c92151;
+    border: none; /* Remove the border */
+    color: white; /* Set the text color */
+    padding: 10px 20px; /* Add padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as inline block */
+    font-size: 16px; /* Set the font size */
+    transition-duration: 0.4s; /* Add transition effect duration */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 10px; /* Add margin between buttons */
 }
+
+.memory-list-save-button:hover {
+    background-color: #438f47; /* Change background color on hover */
+}
+
+.memory-list-cancel-button:hover {
+    background-color: #9f3346;
+}
+
 
 .memory-list-table-row {
     transition: background-color 0.3s ease;

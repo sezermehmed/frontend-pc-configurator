@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import MemoryService from '../services/MemoryService';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import './style/MemoryList.css';
 
 import {
-    Fab,
     Button,
-    Table,
-    TableHead,
-    TableBody,
-    TableRow,
-    TableCell,
-    TextField,
-    Select,
+    Fab,
     MenuItem,
+    Select,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    TextField,
 } from '@mui/material';
 
-import { Add as AddIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+import {Add as AddIcon, Delete as DeleteIcon, Edit as EditIcon} from '@mui/icons-material';
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 
 const MemoryList = () => {
     const [editMode, setEditMode] = useState(false);
@@ -82,7 +84,7 @@ const MemoryList = () => {
             }));
             refreshMemoryList();
         } catch (error) {
-            console.error('Failed to create memory:', error);
+            console.error('Failed to create cpu:', error);
         }
     };
 
@@ -101,7 +103,7 @@ const MemoryList = () => {
             }));
             refreshMemoryList();
         } catch (error) {
-            console.error('Failed to update memory:', error);
+            console.error('Failed to update cpu:', error);
         }
     };
 
@@ -121,7 +123,7 @@ const MemoryList = () => {
                 setMemoryList(response.data);
             })
             .catch((error) => {
-                console.error('Error refreshing Memorys:', error);
+                console.error('Error refreshing Memories:', error);
             });
     };
 
@@ -133,7 +135,7 @@ const MemoryList = () => {
         <div className="memory-list-container">
             <h2 className="memory-list-title">Memory List</h2>
             <Fab color="primary" aria-label="add" onClick={handleAddMemory} className="memory-list-add-button">
-                <AddIcon />
+                <AddIcon/>
             </Fab>
 
             <Table>
@@ -145,13 +147,16 @@ const MemoryList = () => {
                         <TableCell>Price</TableCell>
                         <TableCell>Actions</TableCell>
                         <TableCell>
-                            <Button onClick={refreshMemoryList} variant="contained" startIcon={<RefreshIcon />} >
+                            <Button onClick={refreshMemoryList} variant="contained" startIcon={<RefreshIcon/>}>
                                 Refresh
                             </Button>
                         </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
+
+
+                    {/*AFTER CLICKED ADD BUTTON*/}
                     {editMode === 'new' && (
                         <TableRow>
                             <TableCell>{/* ID */}</TableCell>
@@ -165,18 +170,23 @@ const MemoryList = () => {
                                 />
                             </TableCell>
                             <TableCell>
-                                <Select
+                                <FormControl sx={{m: 1, minWidth: 80}}>
+                                    <InputLabel id="demo-simple-select-helper-label">Socket</InputLabel>
+                                    <Select
+                                        value={inputValues.new?.socket || ''}
+                                        onChange={(e) => handleNewMemoryChange('socket', e.target.value)}
+                                        className="memory-list-select"
 
-                                    label="Ram"
-                                    select
-                                    variant="filled"
-                                    value={inputValues.new?.socket || ''}
-                                    onChange={(e) => handleNewMemoryChange('socket', e.target.value)}
-                                >
-                                    <MenuItem value="DDR3">DDR3</MenuItem>
-                                    <MenuItem value="DDR4">DDR4</MenuItem>
-                                    <MenuItem value="DDR5">DDR5</MenuItem>
-                                </Select>
+
+                                        labelId="demo-simple-select-helper-label"
+                                        id="demo-simple-select-helper"
+                                        label="Slot"
+                                    >
+                                        <MenuItem value="DDR3">DDR3</MenuItem>
+                                        <MenuItem value="DDR4">DDR4</MenuItem>
+                                        <MenuItem value="DDR5">DDR5</MenuItem>
+                                    </Select>
+                                </FormControl>
                             </TableCell>
                             <TableCell>
                                 <TextField
@@ -193,33 +203,40 @@ const MemoryList = () => {
                                 />
                             </TableCell>
                             <TableCell>
-                                <Button onClick={handleSaveClickForNew} className="memory-list-save-button">
+                                <Button onClick={handleSaveClickForNew}
+                                    // className="memory-list-save-button"
+                                        variant="contained"
+                                >
                                     Save
                                 </Button>
-                                <Button onClick={() => setEditMode(null)} className="memory-list-cancel-button">
+                                <> </>
+                                <Button onClick={() => setEditMode(null)}
+                                    // className="memory-list-cancel-button"
+                                        variant="contained"
+                                >
                                     Cancel
                                 </Button>
                             </TableCell>
                         </TableRow>
                     )}
-
-                    {memoryList.map((memory) => (
-                        <TableRow key={memory.id}>
-                            {editMode === memory.id ? (
+                    {/*AFTER CLICKED THE EDIT BUTTON*/}
+                    {memoryList.map((cpu) => (
+                        <TableRow key={cpu.id}>
+                            {editMode === cpu.id ? (
                                 <>
-                                    <TableCell>{memory.id}</TableCell>
+                                    <TableCell>{cpu.id}</TableCell>
                                     <TableCell>
                                         <TextField
                                             type="text"
-                                            value={inputValues[memory.id]?.name || ''}
-                                            onChange={(e) => handleInputChange(memory.id, 'name', e.target.value)}
-                                            className="memory-list-textfield"
+                                            value={inputValues[cpu.id]?.name || ''}
+                                            onChange={(e) => handleInputChange(cpu.id, 'name', e.target.value)}
+                                            // className="memory-list-textfield"
                                         />
                                     </TableCell>
                                     <TableCell>
                                         <Select
-                                            value={inputValues[memory.id]?.socket || ''}
-                                            onChange={(e) => handleInputChange(memory.id, 'socket', e.target.value)}
+                                            value={inputValues[cpu.id]?.socket || ''}
+                                            onChange={(e) => handleInputChange(cpu.id, 'socket', e.target.value)}
                                             className="memory-list-select"
                                         >
                                             <MenuItem value="DDR3">DDR3</MenuItem>
@@ -230,26 +247,32 @@ const MemoryList = () => {
                                     <TableCell>
                                         <TextField
                                             type="text"
-                                            value={inputValues[memory.id]?.price || ''}
-                                            onChange={(e) => handleInputChange(memory.id, 'price', e.target.value)}
-                                            className="memory-list-textfield"
+                                            value={inputValues[cpu.id]?.price || ''}
+                                            onChange={(e) => handleInputChange(cpu.id, 'price', e.target.value)}
+                                            // className="memory-list-textfield"
+
                                         />
                                     </TableCell>
                                     <TableCell>
-                                        <Button onClick={() => handleSaveClick(memory.id)} className="memory-list-save-button">
+                                        <Button onClick={() => handleSaveClick(cpu.id)}
+                                            // className="memory-list-save-button"
+                                                variant="contained">
                                             Save
                                         </Button>
-                                        <Button onClick={() => setEditMode(null)} className="memory-list-cancel-button">
+                                        <> </>
+                                        <Button onClick={() => setEditMode(null)}
+                                            // className="memory-list-cancel-button"
+                                                variant="contained">
                                             Cancel
                                         </Button>
                                     </TableCell>
                                 </>
                             ) : (
                                 <>
-                                    <TableCell>{memory.id}</TableCell>
-                                    <TableCell>{memory.name}</TableCell>
-                                    <TableCell>{memory.socket}</TableCell>
-                                    <TableCell>{memory.price}</TableCell>
+                                    <TableCell>{cpu.id}</TableCell>
+                                    <TableCell>{cpu.name}</TableCell>
+                                    <TableCell>{cpu.socket}</TableCell>
+                                    <TableCell>{cpu.price}</TableCell>
                                 </>
                             )}
                             <TableCell>
@@ -257,16 +280,16 @@ const MemoryList = () => {
                                     color="secondary"
                                     aria-label="edit"
                                     size="small"
-                                    onClick={() => handleEditClick(memory.id, memory)}
+                                    onClick={() => handleEditClick(cpu.id, cpu)}
                                     className="memory-list-edit-button"
                                 >
-                                    <EditIcon />
+                                    <EditIcon/>
                                 </Fab>
-                               <> </>
+                                <> </>
                                 <Button
                                     variant="outlined"
-                                    startIcon={<DeleteIcon />}
-                                    onClick={() => handleDelete(memory.id)}
+                                    startIcon={<DeleteIcon/>}
+                                    onClick={() => handleDelete(cpu.id)}
                                     className="memory-list-delete-button"
                                 >
                                     Delete
