@@ -158,7 +158,7 @@ const MotherboardList = () => {
                 </TableHead>
                 <TableBody>
 
-                    {/*AFTER CLICKED ADD BUTTON*/}
+{/*AFTER CLICKED ADD BUTTON*/}
                     {editMode === 'new' && (
                         <TableRow>
                             <TableCell>{/* ID */}</TableCell>
@@ -214,7 +214,7 @@ const MotherboardList = () => {
                             </TableCell>
                         </TableRow>
                     )}
-                    {/*AFTER CLICKED THE EDIT BUTTON*/}
+{/*AFTER CLICKED THE EDIT BUTTON*/}
                     {motherboardList.map((motherboard) => (
                         <TableRow key={motherboard.id}>
                             {editMode === motherboard.id ? (
@@ -230,13 +230,9 @@ const MotherboardList = () => {
                                     </TableCell>
                                     <TableCell>
                                         <Select
-                                            value={inputValues[motherboard.id].supported_memory || ''}
-                                            onChange={(e) => handleNewMotherboardChange('supported_memory', e.target.value)}
+                                            value={inputValues[motherboard.id]?.supported_memory || ''}
+                                            onChange={(e) => handleInputChange(motherboard.id ,'supported_memory', e.target.value)}
                                             className="motherboard-list-select"
-
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            label="Slot"
                                         >
                                             <MenuItem value="DDR3">DDR3</MenuItem>
                                             <MenuItem value="DDR4">DDR4</MenuItem>

@@ -84,7 +84,7 @@ const MemoryList = () => {
             }));
             refreshMemoryList();
         } catch (error) {
-            console.error('Failed to create cpu:', error);
+            console.error('Failed to create memory:', error);
         }
     };
 
@@ -103,7 +103,7 @@ const MemoryList = () => {
             }));
             refreshMemoryList();
         } catch (error) {
-            console.error('Failed to update cpu:', error);
+            console.error('Failed to update memory:', error);
         }
     };
 
@@ -220,23 +220,23 @@ const MemoryList = () => {
                         </TableRow>
                     )}
                     {/*AFTER CLICKED THE EDIT BUTTON*/}
-                    {memoryList.map((cpu) => (
-                        <TableRow key={cpu.id}>
-                            {editMode === cpu.id ? (
+                    {memoryList.map((memory) => (
+                        <TableRow key={memory.id}>
+                            {editMode === memory.id ? (
                                 <>
-                                    <TableCell>{cpu.id}</TableCell>
+                                    <TableCell>{memory.id}</TableCell>
                                     <TableCell>
                                         <TextField
                                             type="text"
-                                            value={inputValues[cpu.id]?.name || ''}
-                                            onChange={(e) => handleInputChange(cpu.id, 'name', e.target.value)}
+                                            value={inputValues[memory.id]?.name || ''}
+                                            onChange={(e) => handleInputChange(memory.id, 'name', e.target.value)}
                                             // className="memory-list-textfield"
                                         />
                                     </TableCell>
                                     <TableCell>
                                         <Select
-                                            value={inputValues[cpu.id]?.socket || ''}
-                                            onChange={(e) => handleInputChange(cpu.id, 'socket', e.target.value)}
+                                            value={inputValues[memory.id]?.socket || ''}
+                                            onChange={(e) => handleInputChange( memory.id ,'socket', e.target.value)}
                                             className="memory-list-select"
                                         >
                                             <MenuItem value="DDR3">DDR3</MenuItem>
@@ -247,14 +247,14 @@ const MemoryList = () => {
                                     <TableCell>
                                         <TextField
                                             type="text"
-                                            value={inputValues[cpu.id]?.price || ''}
-                                            onChange={(e) => handleInputChange(cpu.id, 'price', e.target.value)}
+                                            value={inputValues[memory.id]?.price || ''}
+                                            onChange={(e) => handleInputChange(memory.id, 'price', e.target.value)}
                                             // className="memory-list-textfield"
 
                                         />
                                     </TableCell>
                                     <TableCell>
-                                        <Button onClick={() => handleSaveClick(cpu.id)}
+                                        <Button onClick={() => handleSaveClick(memory.id)}
                                             // className="memory-list-save-button"
                                                 variant="contained">
                                             Save
@@ -269,10 +269,10 @@ const MemoryList = () => {
                                 </>
                             ) : (
                                 <>
-                                    <TableCell>{cpu.id}</TableCell>
-                                    <TableCell>{cpu.name}</TableCell>
-                                    <TableCell>{cpu.socket}</TableCell>
-                                    <TableCell>{cpu.price}</TableCell>
+                                    <TableCell>{memory.id}</TableCell>
+                                    <TableCell>{memory.name}</TableCell>
+                                    <TableCell>{memory.socket}</TableCell>
+                                    <TableCell>{memory.price}</TableCell>
                                 </>
                             )}
                             <TableCell>
@@ -280,7 +280,7 @@ const MemoryList = () => {
                                     color="secondary"
                                     aria-label="edit"
                                     size="small"
-                                    onClick={() => handleEditClick(cpu.id, cpu)}
+                                    onClick={() => handleEditClick(memory.id, memory)}
                                     className="memory-list-edit-button"
                                 >
                                     <EditIcon/>
@@ -289,7 +289,7 @@ const MemoryList = () => {
                                 <Button
                                     variant="outlined"
                                     startIcon={<DeleteIcon/>}
-                                    onClick={() => handleDelete(cpu.id)}
+                                    onClick={() => handleDelete(memory.id)}
                                     className="memory-list-delete-button"
                                 >
                                     Delete
