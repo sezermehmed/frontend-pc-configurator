@@ -12,39 +12,27 @@ function App() {
         window.location.href = 'http://localhost:3000/';
     };
     return (
-
         <Router>
             <div className="App">
                 <div className="container">
-                    <button className="adminPanel" onClick={handleButtonClick}> Client Main Page</button>
+                    <button className="client" onClick={handleButtonClick}>Client Main Page</button>
                 </div>
                 <div className="lists">
                     <Routes>
                         <Route path="/" element={<MemoryList/>}/>
-                        {/*<Route path="/memory" element={<MemoryList/>}/>*/}
-                        {/*<Route path="/memory" element={<MemoryForm/>}/>*/}
-                        {/*<Route path="/memory/:id" element={<MemoryForm/>}/>*/}
                     </Routes>
-
                 </div>
                 <div className="lists">
                     <Routes>
                         <Route path="/" element={<CpuList/>}/>
-                        {/*<Route path="/cpu" element={<CpuList/>}/>*/}
-                        {/*<Route path="/cpu" element={<CpuForm/>}/>*/}
-                        {/*<Route path="/cpu/:id" element={<CpuForm/>}/>*/}
                     </Routes>
                 </div>
 
                 <div className="lists">
                     <Routes>
                         <Route path="/" element={<MotherboardList/>}/>
-                        {/*<Route path="/motherboard" element={<MotherboardList/>}/>*/}
-                        {/*<Route path="/motherboard" element={<CpuForm/>}/>*/}
-                        {/*<Route path="/motherboard/:id" element={<CpuForm/>}/>*/}
                     </Routes>
                 </div>
-
             </div>
         </Router>
 

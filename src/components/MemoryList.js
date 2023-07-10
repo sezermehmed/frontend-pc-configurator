@@ -154,8 +154,6 @@ const MemoryList = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-
-
                     {/*AFTER CLICKED ADD BUTTON*/}
                     {editMode === 'new' && (
                         <TableRow>
@@ -166,7 +164,6 @@ const MemoryList = () => {
                                     type="text"
                                     value={inputValues.new?.name || ''}
                                     onChange={(e) => handleNewMemoryChange('name', e.target.value)}
-
                                 />
                             </TableCell>
                             <TableCell>
@@ -176,12 +173,9 @@ const MemoryList = () => {
                                         value={inputValues.new?.socket || ''}
                                         onChange={(e) => handleNewMemoryChange('socket', e.target.value)}
                                         className="memory-list-select"
-
-
                                         labelId="demo-simple-select-helper-label"
                                         id="demo-simple-select-helper"
-                                        label="Slot"
-                                    >
+                                        label="Slot">
                                         <MenuItem value="DDR3">DDR3</MenuItem>
                                         <MenuItem value="DDR4">DDR4</MenuItem>
                                         <MenuItem value="DDR5">DDR5</MenuItem>
@@ -199,21 +193,16 @@ const MemoryList = () => {
                                             handleNewMemoryChange('price', value);
                                         }
                                     }}
-
                                 />
                             </TableCell>
                             <TableCell>
                                 <Button onClick={handleSaveClickForNew}
-                                    // className="memory-list-save-button"
-                                        variant="contained"
-                                >
+                                        variant="contained">
                                     Save
                                 </Button>
                                 <> </>
                                 <Button onClick={() => setEditMode(null)}
-                                    // className="memory-list-cancel-button"
-                                        variant="contained"
-                                >
+                                        variant="contained">
                                     Cancel
                                 </Button>
                             </TableCell>
@@ -229,16 +218,13 @@ const MemoryList = () => {
                                         <TextField
                                             type="text"
                                             value={inputValues[memory.id]?.name || ''}
-                                            onChange={(e) => handleInputChange(memory.id, 'name', e.target.value)}
-                                            // className="memory-list-textfield"
-                                        />
+                                            onChange={(e) => handleInputChange(memory.id, 'name', e.target.value)}/>
                                     </TableCell>
                                     <TableCell>
                                         <Select
                                             value={inputValues[memory.id]?.socket || ''}
                                             onChange={(e) => handleInputChange( memory.id ,'socket', e.target.value)}
-                                            className="memory-list-select"
-                                        >
+                                            className="memory-list-select">
                                             <MenuItem value="DDR3">DDR3</MenuItem>
                                             <MenuItem value="DDR4">DDR4</MenuItem>
                                             <MenuItem value="DDR5">DDR5</MenuItem>
@@ -248,22 +234,15 @@ const MemoryList = () => {
                                         <TextField
                                             type="text"
                                             value={inputValues[memory.id]?.price || ''}
-                                            onChange={(e) => handleInputChange(memory.id, 'price', e.target.value)}
-                                            // className="memory-list-textfield"
-
-                                        />
+                                            onChange={(e) => handleInputChange(memory.id, 'price', e.target.value)}/>
                                     </TableCell>
                                     <TableCell>
                                         <Button onClick={() => handleSaveClick(memory.id)}
-                                            // className="memory-list-save-button"
-                                                variant="contained">
-                                            Save
+                                                variant="contained"> Save
                                         </Button>
                                         <> </>
                                         <Button onClick={() => setEditMode(null)}
-                                            // className="memory-list-cancel-button"
-                                                variant="contained">
-                                            Cancel
+                                                variant="contained"> Cancel
                                         </Button>
                                     </TableCell>
                                 </>
@@ -281,8 +260,7 @@ const MemoryList = () => {
                                     aria-label="edit"
                                     size="small"
                                     onClick={() => handleEditClick(memory.id, memory)}
-                                    className="memory-list-edit-button"
-                                >
+                                    className="memory-list-edit-button">
                                     <EditIcon/>
                                 </Fab>
                                 <> </>
@@ -290,8 +268,7 @@ const MemoryList = () => {
                                     variant="outlined"
                                     startIcon={<DeleteIcon/>}
                                     onClick={() => handleDelete(memory.id)}
-                                    className="memory-list-delete-button"
-                                >
+                                    className="memory-list-delete-button">
                                     Delete
                                 </Button>
                             </TableCell>
